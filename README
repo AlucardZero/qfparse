@@ -1,0 +1,20 @@
+This is an attempt at parsing the RIFT data dumps in to a format for use with
+the Quest Finder addon.  It writes to a SQL database.
+Currently it is incomplete, the main blocker being "what is 'ItemStart'" ?
+
+
+$ wget http://webcdn.triongames.com/addons/assets/Rift_Discoveries_ fill-me-in
+$ unzip Rift_Discoveries_*zip
+$ apt-get install mysql-server mysql-client unzip libxml-libxml-perl libconfig-simple-perl libdatetime-perl libdbd-mysql-perl
+
+Create a MySQL database/user, then create a couple tables
+
+create database qf;
+use qf;
+create table NPC (id INT PRIMARY KEY, Name VARCHAR(64));
+create table Quest (id INT PRIMARY KEY, Name VARCHAR(64), Zone VARCHAR(64), AddonId VARCHAR(32), NPCStart VARHCAR(32));
+
+Rename qf.conf.dist to qf.conf and fill it in
+
+dump the tagble where zone - "foo" .. mangle the output to be CSV .. then something like
+cat a | awk -F',' '{print substr($4,0,9)" = \{\n\tQuestId = \""$1"\",\n\tAddonId = \""$4"\",\n\tNPCStart = \""$5"\"\n},"}'

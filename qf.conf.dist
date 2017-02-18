@@ -1,0 +1,5 @@
+SQLENABLE=true
+SQLUSER=root
+SQLDB=qf
+SQLLOC=localhost
+SQLPASS=
