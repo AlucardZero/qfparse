@@ -1,3 +1,9 @@
+# MOVED - UPDATE YOUR LINKS
+
+https://github.com/chennin
+
+
+
 This is an attempt at parsing the RIFT data dumps in to a format for use with
 the Quest Finder addon.  It writes to a SQL database.
 Currently it is incomplete, the main blocker being "what is 'ItemStart'" ?
